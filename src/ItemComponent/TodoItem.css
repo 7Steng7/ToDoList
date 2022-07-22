@@ -59,4 +59,5 @@ ul{
 }
 ul li{
   width: 100%;
+  user-select: none;
 }

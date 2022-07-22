@@ -5,16 +5,34 @@ import { TodoList } from '../ListComponent/TodoList';
 import { TodoItem } from '../ItemComponent/TodoItem';
 import { CreateTodoButton } from '../CreateBottonComponent/CreateTodoButton';
 
+function useHookLocalStorage(itemLocal, initialItem){
 
-const defaultTodos = [
-  { text: 'Primero', completed: false },
-  { text: 'Segundo', completed: false },
-  { text: 'Tercero', completed: true },
-  { text: 'Cuarto', completed: false },
-];
+  const localStorageItem = localStorage.getItem(itemLocal);
+
+  let parsedItem;
+
+  if(!localStorageItem){
+    localStorage.setItem(itemLocal, JSON.stringify(initialItem));
+    parsedItem = initialItem;
+  }else{
+    parsedItem = JSON.parse(localStorageItem);
+  }
+
+  const changeItem = (change) => {
+    const todoToString = JSON.stringify(change); 
+    localStorage.setItem(itemLocal, todoToString);
+    setItem(change);
+  };
+  const [item, setItem] = React.useState(parsedItem);
+  return [
+    item,
+    changeItem
+  ];
+}
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos , changeItem] = useHookLocalStorage('todosVersion1', [{text : 'Add some task', completed : false}]);
+
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => todo.completed === true).length;
@@ -40,14 +58,14 @@ function App() {
       }else{
         newListTodo[todoIndex].completed = true;
       }
-      setTodos(newListTodo);
+      changeItem(newListTodo);
   };
       
     const deleteTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newListTodo = [...todos];
         newListTodo.splice(todoIndex, 1);
-        setTodos(newListTodo);
+        changeItem(newListTodo);
     };
   return (
     <React.Fragment>
