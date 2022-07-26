@@ -7,6 +7,7 @@ function ToDoProvider(props){
   const [todos , changeItem] = useHookLocalStorage('todosVersion1', [{text : 'Add some task', completed : false}]);
 
   const [searchValue, setSearchValue] = React.useState('');
+  const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter(todo => todo.completed === true).length;
   const totalTodos = todos.length;
@@ -39,6 +40,15 @@ function ToDoProvider(props){
         changeItem(newListTodo);
     };
 
+    const addToDo = (text) => {
+      const newListTodo = [...todos];
+      newListTodo.push({
+        completed : false,
+        text,
+      })
+      changeItem(newListTodo);
+  };
+
     return(
         <ToDoContext.Provider value={{
             totalTodos,
@@ -48,6 +58,9 @@ function ToDoProvider(props){
             searchedTodos,
             completedTodos,
             deleteTodo,
+            addToDo,
+            openModal,
+            setOpenModal
         }}>
             {props.children}
         </ToDoContext.Provider>
