@@ -1,0 +1,22 @@
+.container{
+    margin-top: 24px;
+    padding: 80px;
+    text-align: center;
+    background-color: #1b1b01bd;
+}
+.icon{
+    color: rgb(255, 196, 0);
+}
+.iconsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconlibrary{
+    width: 150px;
+    height: 150px;
+}
+.iconPlus{
+    width: 75px;
+    height: 75px;
+}

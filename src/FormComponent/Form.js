@@ -1,5 +1,7 @@
 import React from "react";
+import './Form.css';
 import { ToDoContext } from '../ToDoContext/ToDoContext';
+
 function ToDoForm(){
 
     const [formValue, setformValue ] = React.useState('');
@@ -24,13 +26,15 @@ function ToDoForm(){
 
     return(
         <form onSubmit={onAdd}>
-            <label>...</label>
+            <div className="labelTask">
+                <label>Enter task</label>
+            </div>
             <textarea 
                 value={formValue}
                 onChange={onChange}
                 placeholder="Create a task"
             />
-            <div>
+            <div className="buttonConfig">
                 <button
                     type="button"
                     onClick={onCancel}

@@ -4,8 +4,13 @@ import { useHookLocalStorage } from './HookLocalStorage';
 const ToDoContext = React.createContext();
 
 function ToDoProvider(props){
-  const [todos , changeItem] = useHookLocalStorage('todosVersion1', [{text : 'Add some task', completed : false}]);
-
+  const {
+    item: todos,
+    changeItem,
+    loading,
+    error,
+  } = useHookLocalStorage('todosVersion1', []);
+  
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
 
@@ -51,6 +56,8 @@ function ToDoProvider(props){
 
     return(
         <ToDoContext.Provider value={{
+            loading,
+            error,
             totalTodos,
             complete,
             searchValue,

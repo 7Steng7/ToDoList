@@ -1,0 +1,43 @@
+textarea{
+    width: 450px;
+    height: 200px;
+    font-size: 24px;
+    outline: none; 
+    resize: none;
+    background-color: rgba(25, 27, 0, 0.877);
+    color: #a243da;
+    border:solid 1px yellow ;
+}
+textarea:focus {
+    outline: none;
+}
+textarea::placeholder{
+    padding-top: 50px;
+    text-align: center;
+    color: #a243da;
+}
+.labelTask{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #a243da;
+    font-size: 36px;
+}
+button{
+        background-color: #c5c500;
+        box-shadow: 0px 5px 25px rgba(229, 245, 7, 0.15);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        color: #111100;
+        height: 64px;
+        width: 25%;
+}
+.buttonConfig{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
