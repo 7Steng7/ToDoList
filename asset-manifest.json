@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/7Steng7.github.io/todolist/static/css/main.69997663.css",
+    "main.js": "/7Steng7.github.io/todolist/static/js/main.715957e4.js",
+    "index.html": "/7Steng7.github.io/todolist/index.html",
+    "main.69997663.css.map": "/7Steng7.github.io/todolist/static/css/main.69997663.css.map",
+    "main.715957e4.js.map": "/7Steng7.github.io/todolist/static/js/main.715957e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69997663.css",
+    "static/js/main.715957e4.js"
+  ]
+}
