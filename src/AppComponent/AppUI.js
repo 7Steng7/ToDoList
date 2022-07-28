@@ -13,7 +13,7 @@ import { ToDoError } from '../ToDoError/Error';
 import { ToDoLoader } from '../ToDoLoading/Loader';
 
 function AppUI() {
-
+  //Context Consumer
   const {error,loading,searchedTodos,complete,deleteTodo,openModal,setOpenModal} = React.useContext(ToDoContext);
 
   return (
