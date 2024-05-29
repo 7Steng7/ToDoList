@@ -18,6 +18,7 @@ function AppUI() {
 
   return (
     <React.Fragment>
+    {/* Header with general information - Number - Finished tasks - Add news "To Do"*/}
     <TodoCounter/>
     <div className='searchAndButton'>
       <TodoSearch/>  
@@ -25,11 +26,15 @@ function AppUI() {
         setOpenModal={setOpenModal}
       />
     </div>
-
-          <TodoList>
+    {/* Add UI at the component */}
+          <TodoList> 
+          {/* If there is an error */}
           {error && <ToDoError />}
+          {/* Loading status */}
           {loading && <ToDoLoader />}
+          {/* The list is empty */}
           {(!loading && !searchedTodos.length) && <ToDoEmpty />}
+          {/* Loop each item in the list */}
           {searchedTodos.map(todo => (
             <TodoItem
               key={todo.text}
@@ -40,7 +45,7 @@ function AppUI() {
             />
           ))}
         </TodoList>      
-
+      {/* Add task modal */}
       {!!openModal && (
         <Modal>
           <ToDoForm/>
