@@ -27,6 +27,7 @@ function AppUI() {
       />
     </div>
     {/* Add UI at the component */}
+    <p>Urgentes</p>
           <TodoList> 
           {/* If there is an error */}
           {error && <ToDoError />}
@@ -35,11 +36,12 @@ function AppUI() {
           {/* The list is empty */}
           {(!loading && !searchedTodos.length) && <ToDoEmpty />}
           {/* Loop each item in the list */}
-          {searchedTodos.map(todo => (
+          {searchedTodos.map((todo, index) => (
             <TodoItem
-              key={todo.text}
+              key={index}
               text={todo.text}
               completed={todo.completed}
+              urgent={todo.urgent}
               onComplete = {() => complete(todo.text)}
               onDelete = {() => deleteTodo(todo.text)}
             />

@@ -5,7 +5,9 @@ import { Checkbox } from '@mui/material';
 
 function ToDoForm(){
 
-    const [formValue, setformValue ] = React.useState('');
+    const [ formValue, setformValue ] = React.useState('');
+    const [ important, setImportant ] = React.useState(false);
+    const [ urgent, setUrgent ] = React.useState(false);
 
     const {
         addToDo,
@@ -22,8 +24,11 @@ function ToDoForm(){
 
     const onAdd = (event) => {
         event.preventDefault();
-        addToDo(formValue);
-        setOpenModal(false);
+        const evaluateEmpty = formValue.trim();
+        if(evaluateEmpty.length > 0){
+            addToDo(formValue, important, urgent);
+            setOpenModal(false);
+        }
     };
 
     return(
@@ -43,11 +48,19 @@ function ToDoForm(){
                 </div>
                 <div className="checkboxContainer">
                    <div className="checkBox">
-                     <Checkbox style={{color : 'white'}}/>
+                     <Checkbox 
+                        style={{color : 'white'}}
+                        value={important}
+                        onChange={() => setImportant(!important)}
+                     />
                      <p>Is this duty important?</p>
                    </div>
                    <div className="checkBox">
-                     <Checkbox style={{color : 'white'}} />
+                     <Checkbox 
+                        style={{color : 'white'}} 
+                        value={urgent}
+                        onChange={() => setUrgent(!urgent)}
+                     />
                      <p>Is this duty urgent?</p>
                    </div>
                 </div>

@@ -45,10 +45,13 @@ function ToDoProvider(props){
         changeItem(newListTodo);
     };
 
-    const addToDo = (text) => {
+    const addToDo = (text, important, urgent) => {
+      console.log(todos)
       const newListTodo = [...todos];
       newListTodo.push({
         completed : false,
+        important : important,
+        urgent : urgent,
         text,
       })
       changeItem(newListTodo);
