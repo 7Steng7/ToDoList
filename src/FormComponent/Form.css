@@ -14,10 +14,10 @@ textarea:focus {
 textarea::placeholder{
     text-align: center;
     color: #fff84c;
-    padding-top: 35%;
 }
 .labelTask{
     text-align: center;
+    vertical-align: middle;
     margin-bottom: 8%;
     color: #fff84c;
     font-size: 36px;
@@ -26,6 +26,7 @@ textarea::placeholder{
     background-color: black;
     padding: 5%;
     border-radius: 5%;
+    width: 60%;
 }
 .textAreaContainer{
     width: 50%;

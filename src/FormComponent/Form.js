@@ -43,7 +43,7 @@ function ToDoForm(){
                     <textarea
                         value={formValue}
                         onChange={onChange}
-                        placeholder="Describe the job"
+                        placeholder="Describe the activity"
                     />
                 </div>
                 <div className="checkboxContainer">
