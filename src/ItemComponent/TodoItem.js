@@ -5,7 +5,7 @@ import { IoMdCheckmarkCircleOutline, IoIosArrowDroprightCircle, IoMdRemoveCircle
 function TodoItem(props) {
   return (
     <>
-    { props.urgent ?
+    { !!props.important && !!props.urgent && props.index === 0 ?
     <>
         <li className="TodoItem">
           <span
@@ -17,8 +17,8 @@ function TodoItem(props) {
           <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
             {props.text}
           </p>
-          <p>{props.important ? "Es importante" : "No es importante"}</p>
-          <p>{props.urgent ? "Es urgente" : "No es urgente"}</p>
+          <span onClick={props.changeImportant}>{props.important ? "Es importante" : "No es importante"}</span>
+          <span onClick={props.changeUrgent}>{props.urgent ? "Es urgente" : "No es urgente"}</span>
           <span
             className="Icon Icon-delete"
             onClick={props.onDelete}
@@ -28,7 +28,86 @@ function TodoItem(props) {
         </li>
         </> 
         : 
-        <></>
+    <>
+    </>
+    }
+    { !!props.important && !props.urgent && props.index === 1 ?
+    <>
+        <li className="TodoItem">
+          <span
+            className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
+            onClick={props.onComplete}
+          >
+            <p>{props.completed ? <IoMdCheckmarkCircleOutline /> : <IoIosArrowDroprightCircle/>}</p>
+          </span>
+          <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+            {props.text}
+          </p>
+          <span onClick={props.changeImportant}>{props.important ? "Es importante" : "No es importante"}</span>
+          <span onClick={props.changeUrgent}>{props.urgent ? "Es urgente" : "No es urgente"}</span>
+          <span
+            className="Icon Icon-delete"
+            onClick={props.onDelete}
+          >
+          <IoMdRemoveCircle />
+          </span>
+        </li>
+        </> 
+        : 
+    <>
+    </>
+    }
+    { !props.important && !!props.urgent && props.index === 2 ?
+    <>
+        <li className="TodoItem">
+          <span
+            className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
+            onClick={props.onComplete}
+          >
+            <p>{props.completed ? <IoMdCheckmarkCircleOutline /> : <IoIosArrowDroprightCircle/>}</p>
+          </span>
+          <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+            {props.text}
+          </p>
+          <span onClick={props.changeImportant}>{props.important ? "Es importante" : "No es importante"}</span>
+          <span onClick={props.changeUrgent}>{props.urgent ? "Es urgente" : "No es urgente"}</span>
+          <span
+            className="Icon Icon-delete"
+            onClick={props.onDelete}
+          >
+          <IoMdRemoveCircle />
+          </span>
+        </li>
+        </> 
+        : 
+    <>
+    </>
+    }
+    { !props.important && !props.urgent && props.index === 3 ?
+    <>
+        <li className="TodoItem">
+          <span
+            className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
+            onClick={props.onComplete}
+          >
+            <p>{props.completed ? <IoMdCheckmarkCircleOutline /> : <IoIosArrowDroprightCircle/>}</p>
+          </span>
+          <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+            {props.text}
+          </p>
+          <span onClick={props.changeImportant}>{props.important ? "Es importante" : "No es importante"}</span>
+          <span onClick={props.changeUrgent}>{props.urgent ? "Es urgente" : "No es urgente"}</span>
+          <span
+            className="Icon Icon-delete"
+            onClick={props.onDelete}
+          >
+          <IoMdRemoveCircle />
+          </span>
+        </li>
+        </> 
+        : 
+    <>
+    </>
     }
     </>
   );

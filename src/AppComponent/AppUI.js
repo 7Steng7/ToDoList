@@ -14,8 +14,8 @@ import { ToDoLoader } from '../ToDoLoading/Loader';
 
 function AppUI() {
   //Context Consumer
-  const {error,loading,searchedTodos,complete,deleteTodo,openModal,setOpenModal} = React.useContext(ToDoContext);
-
+  const {error,loading,searchedTodos,complete,deleteTodo,changeImportant,changeUrgent,openModal,setOpenModal} = React.useContext(ToDoContext);
+  const magnitudeToDo = ['Importante y urgente', 'Importante pero no urgente', 'Urgente pero no importante', 'Ni urgente, ni importante'];
   return (
     <React.Fragment>
     {/* Header with general information - Number - Finished tasks - Add news "To Do"*/}
@@ -27,7 +27,10 @@ function AppUI() {
       />
     </div>
     {/* Add UI at the component */}
-    <p>Urgentes</p>
+    
+    {magnitudeToDo.map((magnitude, magnitudeIndex) => (
+      <>
+      <p>{magnitude}</p>
           <TodoList> 
           {/* If there is an error */}
           {error && <ToDoError />}
@@ -39,14 +42,21 @@ function AppUI() {
           {searchedTodos.map((todo, index) => (
             <TodoItem
               key={index}
+              index={magnitudeIndex}
               text={todo.text}
               completed={todo.completed}
               urgent={todo.urgent}
+              important={todo.important}
               onComplete = {() => complete(todo.text)}
               onDelete = {() => deleteTodo(todo.text)}
+              changeUrgent = {() => changeUrgent(todo.text)}
+              changeImportant = {() => changeImportant(todo.text)}
             />
           ))}
-        </TodoList>      
+        </TodoList>  
+      </> 
+    ))}
+    
       {/* Add task modal */}
       {!!openModal && (
         <Modal>

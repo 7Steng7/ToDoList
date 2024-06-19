@@ -37,6 +37,28 @@ function ToDoProvider(props){
       }
       changeItem(newListTodo);
   };
+
+  const changeUrgent = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newListTodo = [...todos];
+    if(newListTodo[todoIndex].urgent === true){
+      newListTodo[todoIndex].urgent = false;
+    }else{
+      newListTodo[todoIndex].urgent = true;
+    }
+    changeItem(newListTodo);
+};
+
+const changeImportant = (text) => {
+  const todoIndex = todos.findIndex(todo => todo.text === text);
+  const newListTodo = [...todos];
+  if(newListTodo[todoIndex].important === true){
+    newListTodo[todoIndex].important = false;
+  }else{
+    newListTodo[todoIndex].important = true;
+  }
+  changeItem(newListTodo);
+};
       
     const deleteTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -68,6 +90,8 @@ function ToDoProvider(props){
             searchedTodos,
             completedTodos,
             deleteTodo,
+            changeUrgent,
+            changeImportant,
             addToDo,
             openModal,
             setOpenModal
