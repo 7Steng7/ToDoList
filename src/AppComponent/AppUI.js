@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import { TodoCategories } from '../CategoriesComponent/TodoCategories';
 import { ToDoContext } from '../ToDoContext/ToDoContext';
 import { TodoCounter } from '../CounterComponent/TodoCounter';
-import { TodoCategories } from '../CategoriesComponent/TodoCategories';
 import { TodoSearch } from '../SearchComponent/TodoSearch';
 import { TodoList } from '../ListComponent/TodoList';
 import { TodoItem } from '../ItemComponent/TodoItem';
@@ -15,11 +15,18 @@ import { ToDoLoader } from '../ToDoLoading/Loader';
 
 function AppUI() {
   //Context Consumer
-  const {error,loading,searchedTodos,complete,deleteTodo,changeImportant,changeUrgent,openModal,setOpenModal} = React.useContext(ToDoContext);
+  const {error, loading, searchedTodos, complete, deleteTodo, changeImportant, changeUrgent, openModal, setOpenModal} = React.useContext(ToDoContext);
   const magnitudeToDo = ['Importante y urgente', 'Importante pero no urgente', 'Urgente pero no importante', 'Ni urgente, ni importante'];
+  const [ activeCategory, setActiveCategory ] = useState()
   return (
-    <React.Fragment>
+  <React.Fragment>
+    <TodoCategories  
+    setActiveCategory = {setActiveCategory}/>
+    <p style={{textAlign : 'center'}}>{activeCategory}</p>
     {/* Header with general information - Number - Finished tasks - Add news "To Do"*/}
+    {/* Parte de arriba de categorias, tareas completas, agregar  */}
+    { activeCategory ?
+    <div>
     <TodoCounter/>
     <div className='searchAndButton'>
       <TodoSearch/>  
@@ -27,14 +34,10 @@ function AppUI() {
         setOpenModal={setOpenModal}
       />
     </div>
-
-    <TodoCategories/>
-
-    {/* Add UI at the component */}
-    <section style={{marginTop : '30px' , display : 'flex', flexWrap : 'wrap'}}>
+     {/* Add UI at the component */}
+     <section style={{marginTop : '30px' , display : 'flex', flexWrap : 'wrap'}}>
     {magnitudeToDo.map((magnitude, magnitudeIndex) => (
-      <>
-      <div style={{width : '50%'}}>
+      <div key={magnitudeIndex} style={{width : '50%'}}>
         <p style={{textAlign : 'center'}}>{magnitude}</p>
             <TodoList> 
             {/* If there is an error */}
@@ -48,6 +51,8 @@ function AppUI() {
               <TodoItem
                 key={index}
                 index={magnitudeIndex}
+                activeCategory={activeCategory}
+                category={todo.category}
                 text={todo.text}
                 completed={todo.completed}
                 urgent={todo.urgent}
@@ -60,16 +65,17 @@ function AppUI() {
             ))}
           </TodoList>
         </div>  
-      </> 
     ))}
     </section>
       {/* Add task modal */}
       {!!openModal && (
         <Modal>
-          <ToDoForm/>
+          <ToDoForm category={activeCategory} />
         </Modal>
       )}
-    </React.Fragment>
+      </div> : <div>Elige una categoría</div> 
+    }
+  </React.Fragment>
   );
 }
 

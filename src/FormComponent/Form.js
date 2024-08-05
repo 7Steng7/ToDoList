@@ -3,7 +3,7 @@ import './Form.css';
 import { ToDoContext } from '../ToDoContext/ToDoContext';
 import { Checkbox } from '@mui/material';
 
-function ToDoForm(){
+function ToDoForm({ category }){
 
     const [ formValue, setformValue ] = React.useState('');
     const [ important, setImportant ] = React.useState(false);
@@ -26,7 +26,7 @@ function ToDoForm(){
         event.preventDefault();
         const evaluateEmpty = formValue.trim();
         if(evaluateEmpty.length > 0){
-            addToDo(formValue, important, urgent);
+            addToDo(formValue, important, urgent, category);
             setOpenModal(false);
         }
     };

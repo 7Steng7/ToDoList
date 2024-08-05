@@ -5,6 +5,7 @@ function useHookLocalStorage(itemLocal, initialItem){
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialItem);
+  const [category, setCategory] = React.useState(initialItem);
 
     React.useEffect(() => {
       setTimeout(() => {
@@ -18,7 +19,11 @@ function useHookLocalStorage(itemLocal, initialItem){
           } else {
             parsedItem = JSON.parse(localStorageItem);
           }
-          setItem(parsedItem);
+          if(itemLocal === 'todos'){
+            setItem(parsedItem);
+          }else{
+            setCategory(parsedItem)
+          }
           setLoading(false);
         } catch(error) {
           setError(error);
@@ -35,12 +40,25 @@ function useHookLocalStorage(itemLocal, initialItem){
         setError(error);
       }
     };
+
+    const changeCategory = (change) => {
+      console.log(change)
+      try{
+        const categoryString = JSON.stringify(change); 
+        localStorage.setItem(itemLocal, categoryString);
+        setCategory(change);
+      }catch(error){
+        setError(error);
+      }
+    };
     
     return {
       item,
       changeItem,
       loading,
       error,
+      category,
+      changeCategory
     };
   };
 export { useHookLocalStorage };

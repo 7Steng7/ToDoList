@@ -9,7 +9,12 @@ function ToDoProvider(props){
     changeItem,
     loading,
     error,
-  } = useHookLocalStorage('todosVersion1', []);
+  } = useHookLocalStorage('todos', []);
+
+  const {
+    category: categories,
+    changeCategory,
+  } = useHookLocalStorage('categories', []);
   
   const [searchValue, setSearchValue] = React.useState('');
   const [openModal, setOpenModal] = React.useState(false);
@@ -27,6 +32,7 @@ function ToDoProvider(props){
       return todoText.includes(searchText);
     });
   }
+
   const complete = (text) => {
       const todoIndex = todos.findIndex(todo => todo.text === text);
       const newListTodo = [...todos];
@@ -47,18 +53,18 @@ function ToDoProvider(props){
       newListTodo[todoIndex].urgent = true;
     }
     changeItem(newListTodo);
-};
+  };
 
-const changeImportant = (text) => {
-  const todoIndex = todos.findIndex(todo => todo.text === text);
-  const newListTodo = [...todos];
-  if(newListTodo[todoIndex].important === true){
-    newListTodo[todoIndex].important = false;
-  }else{
-    newListTodo[todoIndex].important = true;
-  }
-  changeItem(newListTodo);
-};
+  const changeImportant = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newListTodo = [...todos];
+    if(newListTodo[todoIndex].important === true){
+      newListTodo[todoIndex].important = false;
+    }else{
+      newListTodo[todoIndex].important = true;
+    }
+    changeItem(newListTodo);
+  };
       
     const deleteTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
@@ -67,16 +73,24 @@ const changeImportant = (text) => {
         changeItem(newListTodo);
     };
 
-    const addToDo = (text, important, urgent) => {
-      console.log(todos)
-      const newListTodo = [...todos];
-      newListTodo.push({
-        completed : false,
-        important : important,
-        urgent : urgent,
-        text,
-      })
-      changeItem(newListTodo);
+  const addToDo = (text, important, urgent, category) => {
+    const newListTodo = [...todos];
+    newListTodo.push({
+      completed : false,
+      important : important,
+      urgent : urgent,
+      text : text,
+      category : category
+    })
+    changeItem(newListTodo);
+  };
+
+  const addCategory = (name) => {
+    const newListcategory = [...categories];
+    newListcategory.push({
+      name : name,
+    })
+    changeCategory(newListcategory);
   };
 
     return(
@@ -93,6 +107,8 @@ const changeImportant = (text) => {
             changeUrgent,
             changeImportant,
             addToDo,
+            addCategory,
+            categories,
             openModal,
             setOpenModal
         }}>
