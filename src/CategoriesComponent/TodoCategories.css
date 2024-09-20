@@ -12,3 +12,15 @@
   .buttonCategory{
     width: 20%;
   }
+  .inputCategory{
+    background-color: #000000e7;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.589);
+    color: #fff84c;
+    max-width: 80%;
+    text-align: center;
+  }

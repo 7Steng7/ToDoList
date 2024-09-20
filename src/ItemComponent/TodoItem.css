@@ -9,6 +9,7 @@
   color: #fff84c;
   max-width: 80%;
   text-align: center;
+  min-height: 72px;
 }
 
 .TodoItem-p {

@@ -31,7 +31,7 @@ function TodoCategories({ setActiveCategory }) {
       <p style={{textAlign : 'center'}}>Puedes agregar categorias con el fin de filtrar mejor las tareas, trabajo, casa, estudio, etc.</p>
     <div className='ContainerButtonCategory'>
       <button className='buttonCategory' onClick={onAddCategory}>Agregar</button>
-      <input type="text" value={nameCategory} onChange={handleChange}/>
+      <input className='inputCategory' type="text" value={nameCategory} onChange={handleChange}/>
     </div>
     <div style={{display : 'flex', justifyContent : 'space-around'}}>
         {categories.map((category, index) => (
