@@ -113,7 +113,7 @@ function AppUI() {
             {searchedTodos.filter(todo => {
                 const quadrantIndex = getQuadrantIndex(todo);
                 return quadrantIndex === magnitudeIndex && todo.category === activeCategory;
-              }).length === 0 && <li className="TodoItem">No hay items en este cuadrante :(</li>}
+              }).length === 0 && <li className="TodoItem">There are no items :(</li>}
             </TodoList>
         </div>  
       ))}
