@@ -23,7 +23,10 @@
 .TodoItem-p--complete {
   text-decoration: line-through;
 }
-
+.titleCategories{
+  text-align: center;
+  font-size: 20px;
+}
 .Icon {
   cursor: pointer;
   display: flex;
@@ -61,4 +64,17 @@ ul{
 ul li{
   width: 100%;
   user-select: none;
+}
+.transition-container {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.transition-container.open {
+  opacity: 1;
+  max-height: 100%; /* Ajusta este valor según el contenido */
+  transform: translateY(0);
 }

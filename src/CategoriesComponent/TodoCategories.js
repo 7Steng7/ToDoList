@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { ToDoContext } from '../ToDoContext/ToDoContext';
 import './TodoCategories.css';
 
-function TodoCategories({ setActiveCategory }) {
+function TodoCategories({ setIsVisible, activeCategory, setActiveCategory }) {
   const [ nameCategory, setNameCategory ] = useState('');
-
   const {
     addCategory,
     categories
@@ -22,24 +21,29 @@ function TodoCategories({ setActiveCategory }) {
   };
 
   const categoryClick = (category) => {
-    setActiveCategory(category)
+    if(activeCategory === category){
+      setIsVisible(false);
+      setTimeout(() => setActiveCategory(null), 450);
+    }else{
+      setActiveCategory(category);
+    }
   };
 
   return (
-    <section>
-      <h2 className='TodoCategories'>Categorias</h2>
-      <p style={{textAlign : 'center'}}>Puedes agregar categorias con el fin de filtrar mejor las tareas, trabajo, casa, estudio, etc.</p>
+    <section className='sectionCategories'>
+      <h2 className='TodoCategories'>Categories</h2>
+      <p className='titleCategories'>You can add categories in order to better filter tasks, work, home, study, etc.</p>
     <div className='ContainerButtonCategory'>
-      <button className='buttonCategory' onClick={onAddCategory}>Agregar</button>
-      <input className='inputCategory' type="text" value={nameCategory} onChange={handleChange}/>
+      <button className='buttonAddCategory' onClick={onAddCategory}>Add category</button>
+      <input className='inputCategory' placeholder='Name your category' type="text" value={nameCategory} onChange={handleChange}/>
     </div>
-    <div style={{display : 'flex', justifyContent : 'space-around'}}>
-        {categories.map((category, index) => (
-          <button className="buttonCategory" key={category.name} onClick={() => categoryClick(category.name)}>
-            {category.name}
-          </button>
-        ))}
-      </div>  
+    <div style={{ display: 'flex', flexWrap: 'wrap', width : '80%' }}>
+      {categories.map((category) => (
+        <button className="buttonCategory" key={category.name} onClick={() => categoryClick(category.name)}>
+          {category.name}
+        </button>
+      ))} 
+    </div>
     </section>
   );
 }
