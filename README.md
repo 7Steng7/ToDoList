@@ -9,6 +9,7 @@ ToDoList es una aplicación sencilla y efectiva para gestionar tus tareas diaria
 - **Añadir Tareas**: Crea nuevas tareas con facilidad.
 ![Agregar Tarea](https://github.com/user-attachments/assets/377ea02b-8066-40f4-bf21-b2bd7d61dacc)
 - **Eliminar Tareas**: Elimina tareas que ya no son necesarias.
+![Eliminar Tarea](https://github.com/user-attachments/assets/5101f510-fb14-405a-8189-1527cd9331e2)
 - **Urgente e Importante**: Marca y modifica tareas como urgentes o importantes, siguiendo el método de la Matriz de Eisenhower, para priorizar tu trabajo.
 - **Categorías**: Asigna categorías a tus tareas y filtra por ellas para una mejor organización.
 - **Recurrencia de Datos**: Los datos se almacenan en `localStorage`, asegurando que tus tareas se mantengan incluso después de cerrar el navegador.
