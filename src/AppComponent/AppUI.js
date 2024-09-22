@@ -17,7 +17,7 @@ import { ToDoLoader } from '../ToDoLoading/Loader';
 function AppUI() {
   //Context Consumer
   const {error, loading, searchedTodos, complete, deleteTodo, changeImportant, changeUrgent, openModal, setOpenModal, categories} = React.useContext(ToDoContext);
-  const magnitudeToDo = ['Importante y urgente', 'Importante pero no urgente', 'Urgente pero no importante', 'Ni urgente, ni importante'];
+  const magnitudeToDo = ['Important and urgent', 'Important but not urgent', 'Urgent but not important', 'Neither urgent nor important'];
   const quadrants = categories.map(category => {
     return { category: category.name, quadrants: [0, 0, 0, 0] };
   });
