@@ -13,16 +13,18 @@ ToDoList es una aplicación sencilla y efectiva para gestionar tus tareas diaria
 ![Eliminar Tarea](https://github.com/user-attachments/assets/5101f510-fb14-405a-8189-1527cd9331e2)
 
 - **Marcar tareas como terminadas**: Marca tareas que necesitas seguir como completadas.
-![Terminar Tarea](https://github.com/user-attachments/assets/056a9665-f926-4b96-ba74-46ea7b8475d1)
+![Terminar Tarea](https://github.com/user-attachments/assets/d198ae11-b31d-434b-8b06-6c5f1fea09b4)
 
-- **Urgente e Importante**: Marca y modifica tareas como urgentes o importantes, siguiendo el método de la Matriz de Eisenhower, para priorizar tu trabajo.
+- **Urgente e Importante**: Marca y modifica tareas como urgentes o importantes, siguiendo el método de la Matriz de Eisenhower, para priorizar tu trabajo, además puedes cambiar la urgencia e importancia de cada tarea haciendo clic en el texto correspondiente.
 ![Urgencia e importancia](https://github.com/user-attachments/assets/3041d6a3-0239-40d0-8637-a4bcba950804)
 
 - **Categorías**: Asigna categorías a tus tareas y filtra por ellas para una mejor organización.
 - ![Categorias](https://github.com/user-attachments/assets/711a6f42-9cb6-4a1d-bffe-9cf3211ee90b)
-
+  
+- **Búsqueda de Tareas**: Encuentra tareas específicas de manera rápida y sencilla.
 - **Recurrencia de Datos**: Los datos se almacenan en `localStorage`, asegurando que tus tareas se mantengan incluso después de cerrar el navegador.
 - **Interfaz Amigable**: Diseñado para ser intuitivo y fácil de usar.
+- **Puedes Cambiar la urgencia e importancia**: Cambia urgencia e importancia de cada tarea cuando necesites.
 
 ## Matriz de Eisenhower
 
