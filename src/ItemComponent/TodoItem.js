@@ -40,10 +40,10 @@ const TodoItem = (props) => {
           {props.text}
         </p>
         <span onClick={props.changeImportant}>
-          {props.important ? "Es importante" : "No es importante"}
+          {props.important ? "It is important" : "It's not important"}
         </span>
         <span onClick={props.changeUrgent}>
-          {props.urgent ? "Es urgente" : "No es urgente"}
+          {props.urgent ? "It is urgent" : "It's not urgent"}
         </span>
         <span className="Icon Icon-delete" onClick={props.onDelete}>
           <IoMdRemoveCircle />
