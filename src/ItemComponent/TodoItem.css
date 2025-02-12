@@ -75,7 +75,7 @@ ul li{
 
 .transition-container.open {
   opacity: 1;
-  max-height: 100%; /* Ajusta este valor según el contenido */
+  max-height: 100%;
   transform: translateY(0);
 }
 
@@ -89,6 +89,11 @@ ul li{
   margin : '30px';
 } 
 
+@media (min-width: 768px) {
+  .magnitudeItems {
+    width: 50%;
+  }
+}
 
 /* .currentTextCategory {
   text-align: center;
