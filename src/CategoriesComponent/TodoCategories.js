@@ -13,6 +13,8 @@ function TodoCategories({ setIsVisible, activeCategory, setActiveCategory }) {
     if (nameCategory.trim() !== '') {
       addCategory(nameCategory);
       setNameCategory('');
+    }else{
+      alert('Please add a name to your category');
     }
   };
 
