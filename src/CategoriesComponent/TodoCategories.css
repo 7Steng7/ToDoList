@@ -20,29 +20,33 @@
 }
 
 .inputCategory {
-  background-color: #000000;
-  border-radius: 2px;
-  border: 2px solid #202329;
-  margin: 0 24px;
-  height: 64px;
-  width: 100%;
-  font-size: 24px;
-  text-align: center;
-  font-family: 'Montserrat';
-  font-weight: 400;
-  color: #fff84c;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
-  padding: 0 20px 0 20px;
+  background-color: #000000; /* Fondo negro */
+  border-radius: 5px; /* Bordes redondeados (coincide con el botón) */
+  border: 2px solid #202329; /* Borde gris oscuro */
+  margin: 10px; /* Margen para separar del botón */
+  height: 50px; /* Altura reducida para que no sea demasiado grande */
+  width: calc(80% - 20px); /* Ancho ajustado para coincidir con el botón (80% menos el margen) */
+  font-size: 16px; /* Tamaño de fuente reducido */
+  text-align: center; /* Texto centrado */
+  font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+  font-weight: 400; /* Peso de la fuente */
+  color: #fff84c; /* Color del texto amarillo */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  padding: 0 20px; /* Relleno interno */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
 .inputCategory::placeholder {
-  color: #fff84c;
-  font-family: 'Montserrat';
-  font-weight: 400;
+  color: #fff84c; /* Color del placeholder amarillo */
+  font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+  font-weight: 400; /* Peso de la fuente */
+  opacity: 0.7; /* Opacidad reducida para el placeholder */
 }
 
 .inputCategory:focus {
-  outline-color: #a3a53d;
+  outline: none; /* Elimina el outline por defecto */
+  border-color: #a3a53d; /* Cambia el color del borde al enfocar */
+  box-shadow: 0px 0px 8px rgba(163, 165, 61, 0.5); /* Sombra más pronunciada al enfocar */
 }
 
 .buttonCategory {

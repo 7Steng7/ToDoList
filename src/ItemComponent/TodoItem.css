@@ -78,3 +78,20 @@ ul li{
   max-height: 100%; /* Ajusta este valor según el contenido */
   transform: translateY(0);
 }
+
+.magnitudeItems {
+  width: 100%;
+}
+
+.currentTextCategory {
+  text-align: center;
+  font-size : '20px';
+  margin : '30px';
+} 
+
+
+/* .currentTextCategory {
+  text-align: center;
+  font-size : '20px';
+  margin : '30px 0';
+}  */

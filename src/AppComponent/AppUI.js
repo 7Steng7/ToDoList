@@ -73,7 +73,7 @@ function AppUI() {
     { categories.length === 0 && <div className='titleCategories'>You haven't created categories yet</div> }
     { activeCategory ?
     <div className={`transition-container ${isVisible ? 'open' : ''}`}>
-    <p style={{textAlign : 'center', fontSize : '20px', margin : '30px 0'}}> Current category : {activeCategory} </p>
+    <p className='currentTextCategory'> Current category : {activeCategory} </p>
     <TodoCounter/>
     <div className='searchAndButton'>
       <TodoSearch/>  
@@ -84,7 +84,7 @@ function AppUI() {
     {/* Add UI at the component */}
     <section style={{marginTop : '30px' , display : 'flex', flexWrap : 'wrap'}}>
       {magnitudeToDo.map((magnitude, magnitudeIndex) => (
-        <div key={magnitudeIndex} style={{width : '50%'}}>
+        <div key={magnitudeIndex} className='magnitudeItems'>
           <p style={{textAlign : 'center'}}>{magnitude}</p>
           <TodoList> 
             {/* If there is an error */}
