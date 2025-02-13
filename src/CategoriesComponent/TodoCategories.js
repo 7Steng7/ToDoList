@@ -36,10 +36,10 @@ function TodoCategories({ setIsVisible, activeCategory, setActiveCategory }) {
       <h2 className='TodoCategories'>Categories</h2>
       <p className='titleCategories'>You can add categories in order to better filter tasks, work, home, study, etc.</p>
     <div className='ContainerButtonCategory'>
-      <button className='buttonAddCategory' onClick={onAddCategory}>Add category</button>
       <input className='inputCategory' placeholder='Name your category' type="text" value={nameCategory} onChange={handleChange}/>
+      <button className='buttonAddCategory' onClick={onAddCategory}>Add category</button>
     </div>
-    <div style={{ display: 'flex', flexWrap: 'wrap', width : '80%' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width : '80%' }}>
       {categories.map((category) => (
         <button className="buttonCategory" key={category.name} onClick={() => categoryClick(category.name)}>
           {category.name}
