@@ -72,7 +72,7 @@ function AppUI() {
     {/* Parte de arriba de categorias, tareas completas, agregar  */}
     { categories.length === 0 && <div className='titleCategories'>You haven't created categories yet</div> }
     { activeCategory ?
-    <div className={`transition-container ${isVisible ? 'open' : ''}`}>
+    <div className={`transition-container ${isVisible ? 'open' : ''} centerContent`}>
     <p className='currentTextCategory'> Current category : {activeCategory} </p>
     <TodoCounter/>
     <div className='searchAndButton'>
@@ -82,7 +82,7 @@ function AppUI() {
         />
     </div>
     {/* Add UI at the component */}
-    <section style={{marginTop : '30px' , display : 'flex', flexWrap : 'wrap'}}>
+    <section style={{marginTop : '30px' , display : 'flex', flexWrap : 'wrap', width : '100%'}}>
       {magnitudeToDo.map((magnitude, magnitudeIndex) => (
         <div key={magnitudeIndex} className='magnitudeItems'>
           <p style={{textAlign : 'center'}}>{magnitude}</p>

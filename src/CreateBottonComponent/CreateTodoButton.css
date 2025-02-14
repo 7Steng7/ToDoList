@@ -29,3 +29,12 @@
   align-items: center;
   color: white;
 }
+
+
+@media (max-width: 768px) {
+  .CreateTodoButton {
+    font-size: 32px;
+    height: 40px;
+    width: 40px;
+  }
+}

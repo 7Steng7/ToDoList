@@ -53,6 +53,8 @@
   width: 25%;
   font-size: 16px;
   margin: 5px;
+  height: auto;
+  padding: 5px;
 }
 
 .sectionCategories {
@@ -86,7 +88,11 @@
   .inputCategory {
       width: 60%;
   }
-  
+  .buttonCategory {
+    width: 32%;
+    font-size: 16px;
+    margin: 5px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -98,7 +104,28 @@
   .inputCategory {
       width: 70%;
   }
+  .ContainerButtonCategory {
+    flex-direction: column;
+    width: 100%;
+  }
 
+  .buttonAddCategory {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #fff84c;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .buttonCategory {
+    width: 100%;
+    font-size: 16px;
+    margin: 5px;
+  }
 }
 
 @media (max-width: 480px) {

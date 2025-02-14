@@ -29,7 +29,7 @@ const TodoItem = (props) => {
   return (
   <>
     {props.category === props.activeCategory ? (
-      <li className="TodoItem">
+      <li className="TodoItem listTasks">
         <span
           className={`Icon Icon-check ${props.completed ? 'Icon-check--active' : ''}`}
           onClick={props.onComplete}
@@ -39,10 +39,10 @@ const TodoItem = (props) => {
         <p className={`TodoItem-p ${props.completed ? 'TodoItem-p--complete' : ''}`}>
           {props.text}
         </p>
-        <span onClick={props.changeImportant}>
+        <span onClick={props.changeImportant} className="buttonsTasks">
           {props.important ? "It is important" : "It's not important"}
         </span>
-        <span onClick={props.changeUrgent}>
+        <span onClick={props.changeUrgent} className="buttonsTasks">
           {props.urgent ? "It is urgent" : "It's not urgent"}
         </span>
         <span className="Icon Icon-delete" onClick={props.onDelete}>

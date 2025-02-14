@@ -67,10 +67,11 @@ function ToDoForm({ category }){
             </div>
             <div className="buttonConfig">
                 <button
+                    className="buttonsHandler"
                     type="button"
                     onClick={onCancel}
                 >Cancel</button>
-                <button type="submit">Add occupation</button>
+                <button type="submit" className="buttonsHandler">Add occupation</button>
             </div>
         </form>
         </>
